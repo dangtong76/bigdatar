@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 데이터 타입 및 데이터 구조 | R로 배우는 빅데이터 처리 및 분석</title>
+  <meta name="description" content="에이콘 아카데미의 R로 배우는 빅데이터 처리 실습 튜토리얼 입니다." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 데이터 타입 및 데이터 구조 | R로 배우는 빅데이터 처리 및 분석" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="에이콘 아카데미의 R로 배우는 빅데이터 처리 실습 튜토리얼 입니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 데이터 타입 및 데이터 구조 | R로 배우는 빅데이터 처리 및 분석" />
+  
+  <meta name="twitter:description" content="에이콘 아카데미의 R로 배우는 빅데이터 처리 실습 튜토리얼 입니다." />
+  
+
+<meta name="author" content="dangtong" />
+
+
+<meta name="date" content="2019-08-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="methods.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>학습하기 전에</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#window-"><i class="fa fa-check"></i><b>0.1</b> Window 설치</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#mac-"><i class="fa fa-check"></i><b>0.2</b> Mac 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> R을 시작하기에 앞서</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-"><i class="fa fa-check"></i><b>1.1</b> R설치 하기</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#rstudio-"><i class="fa fa-check"></i><b>1.2</b> RStudio 사용법</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.3</b> 분석 개요</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html#intro"><i class="fa fa-check"></i><b>2</b> 데이터 타입 및 데이터 구조</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#variable"><i class="fa fa-check"></i><b>2.1</b> 변수(Variable)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#numeric"><i class="fa fa-check"></i><b>2.1.1</b> 숫자(Numeric)</a></li>
+<li class="chapter" data-level="2.1.2" data-path="intro.html"><a href="intro.html#section-2.1.2"><i class="fa fa-check"></i><b>2.1.2</b> 문자()</a></li>
+<li class="chapter" data-level="2.1.3" data-path="intro.html"><a href="intro.html#-factor"><i class="fa fa-check"></i><b>2.1.3</b> 팩터 (factor)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="intro.html"><a href="intro.html#logical"><i class="fa fa-check"></i><b>2.1.4</b> 논리형(Logical)</a></li>
+<li class="chapter" data-level="2.1.5" data-path="intro.html"><a href="intro.html#date-and-datetime"><i class="fa fa-check"></i><b>2.1.5</b> 날짜타입(Date and Datetime)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#-data-structure"><i class="fa fa-check"></i><b>2.2</b> 데이터 구조(Data Structure)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R로 배우는 빅데이터 처리 및 분석</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> 데이터 타입 및 데이터 구조</h1>
+<div id="variable" class="section level2">
+<h2><span class="header-section-number">2.1</span> 변수(Variable)</h2>
+<p>숫자, 문자, 범주, 논리, 날짜 등의 데이터 타입을 할당하고 관리 <script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('left', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script></p>
+<div id="numeric" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> 숫자(Numeric)</h3>
+<p>숫자</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x1 &lt;-<span class="st"> </span><span class="dv">13</span>; x1; <span class="kw">class</span>(x1); <span class="kw">str</span>(x1)</code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre><code>##  num 13</code></pre>
+<p>부동수</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2 &lt;-<span class="st"> </span><span class="fl">12.3</span>; x1; <span class="kw">class</span>(x2); <span class="kw">str</span>(x2)</code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre><code>##  num 12.3</code></pre>
+<p>정수</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x3 &lt;-<span class="st"> </span>56L; x2; <span class="kw">class</span>(x3); <span class="kw">str</span>(x3)</code></pre></div>
+<pre><code>## [1] 12.3</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre><code>##  int 56</code></pre>
+</div>
+<div id="section-2.1.2" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> 문자()</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x1 &lt;-<span class="st"> &quot;hellow world&quot;</span>; <span class="kw">class</span>(x1); <span class="kw">str</span>(x1)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre><code>##  chr &quot;hellow world&quot;</code></pre>
+</div>
+<div id="-factor" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> 팩터 (factor)</h3>
+<p>팩터의 기본 사용법</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex =<span class="st"> </span><span class="kw">factor</span>(<span class="st">&quot;male&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>)); <span class="kw">class</span>(sex); <span class="kw">str</span>(sex); sex</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre><code>##  Factor w/ 2 levels &quot;male&quot;,&quot;female&quot;: 1</code></pre>
+<pre><code>## [1] male
+## Levels: male female</code></pre>
+<p>한번에 여려개의 팩터 할당</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex_family =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;make&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))
+sex_family</code></pre></div>
+<pre><code>## [1] male   female &lt;NA&gt;  
+## Levels: male female</code></pre>
+<p>팩터의 레벨 확인</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nlevels</span>(sex)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)</code></pre></div>
+<pre><code>## [1] &quot;male&quot;   &quot;female&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;male&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] &quot;female&quot;</code></pre>
+<p>level 을 지정하지 않을 경우 자동 인지</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">auto_factor =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;student&quot;</span>,<span class="st">&quot;teacher&quot;</span>,<span class="st">&quot;staff&quot;</span>))
+auto_factor</code></pre></div>
+<pre><code>## [1] student teacher staff  
+## Levels: staff student teacher</code></pre>
+</div>
+<div id="logical" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> 논리형(Logical)</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x1 =<span class="st"> </span><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">TRUE</span>; <span class="kw">class</span>(x1); <span class="kw">str</span>(x1); x1</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre><code>##  logi TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2 =<span class="st"> </span><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">FALSE</span>; <span class="kw">class</span>(x2); <span class="kw">str</span>(x2); x2</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre><code>##  logi FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X3 =<span class="st"> </span>T <span class="op">&amp;</span><span class="st"> </span>T; <span class="kw">class</span>(x2); <span class="kw">str</span>(x2); x2</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre><code>##  logi FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="date-and-datetime" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> 날짜타입(Date and Datetime)</h3>
+</div>
+</div>
+<div id="-data-structure" class="section level2">
+<h2><span class="header-section-number">2.2</span> 데이터 구조(Data Structure)</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bigdatar_tutorial.pdf", "bigdatar_tutorial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
