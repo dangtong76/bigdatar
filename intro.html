@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="intro.html">
-<link rel="next" href="methods.html">
+<link rel="next" href="-.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -104,7 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">R로 배우는 빅데이터</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>학습하기 전에</a><ul>
@@ -124,9 +124,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.4" data-path="intro.html"><a href="intro.html#logical"><i class="fa fa-check"></i><b>2.1.4</b> 논리형(Logical)</a></li>
 <li class="chapter" data-level="2.1.5" data-path="intro.html"><a href="intro.html#date-and-datetime"><i class="fa fa-check"></i><b>2.1.5</b> 날짜타입(Date and Datetime)</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#-data-structure"><i class="fa fa-check"></i><b>2.2</b> 데이터 구조(Data Structure)</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#-data-structure"><i class="fa fa-check"></i><b>2.2</b> 데이터 구조(Data Structure)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#-vector"><i class="fa fa-check"></i><b>2.2.1</b> 벡터 (Vector)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#list"><i class="fa fa-check"></i><b>2.2.2</b> 리스트(List)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#matrix"><i class="fa fa-check"></i><b>2.2.3</b> 행렬(Matrix)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="intro.html"><a href="intro.html#data-frame"><i class="fa fa-check"></i><b>2.2.4</b> 데이타프레임(Data Frame)</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="-.html"><a href="-.html"><i class="fa fa-check"></i><b>3</b> 흐름제어 및 함수</a><ul>
+<li class="chapter" data-level="3.1" data-path="-.html"><a href="-.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 흐름제어</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="-.html"><a href="-.html#if"><i class="fa fa-check"></i><b>3.1.1</b> if문</a></li>
+<li class="chapter" data-level="3.1.2" data-path="-.html"><a href="-.html#ifelse"><i class="fa fa-check"></i><b>3.1.2</b> ifelse문</a></li>
+<li class="chapter" data-level="3.1.3" data-path="-.html"><a href="-.html#else-if"><i class="fa fa-check"></i><b>3.1.3</b> else if문</a></li>
+<li class="chapter" data-level="3.1.4" data-path="-.html"><a href="-.html#section-3.1.4"><i class="fa fa-check"></i><b>3.1.4</b> 연습문제</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
@@ -234,7 +246,113 @@ auto_factor</code></pre></div>
 </div>
 <div id="-data-structure" class="section level2">
 <h2><span class="header-section-number">2.2</span> 데이터 구조(Data Structure)</h2>
+<div id="-vector" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> 벡터 (Vector)</h3>
+<p>벡터의 생성</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">180</span>))</code></pre></div>
+<pre><code>## [1] 100  60  80 180</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(v2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot;</code></pre>
+<p>벡터의 형변환</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="st">&quot;BAD&quot;</span>,<span class="dv">80</span>,<span class="dv">180</span>)
+v1</code></pre></div>
+<pre><code>## [1] &quot;100&quot; &quot;BAD&quot; &quot;80&quot;  &quot;180&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>)
+v1</code></pre></div>
+<pre><code>## [1] 1.0 2.0 3.0 4.5</code></pre>
+<p>백터에 이름 지정</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(v1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;jone&quot;</span>,<span class="st">&quot;micheal&quot;</span>,<span class="st">&quot;jane&quot;</span>,<span class="st">&quot;jessica&quot;</span>)
+v1</code></pre></div>
+<pre><code>##    jone micheal    jane jessica 
+##     1.0     2.0     3.0     4.5</code></pre>
+<p>벡터에 접근 및 조회</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre></div>
+<pre><code>##    jone micheal    jane 
+##       1       2       3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1[<span class="st">&quot;micheal&quot;</span>]</code></pre></div>
+<pre><code>## micheal 
+##       2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1[<span class="op">-</span><span class="dv">2</span>]</code></pre></div>
+<pre><code>##    jone    jane jessica 
+##     1.0     3.0     4.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span> (<span class="dv">1</span>,<span class="dv">3</span>)
+v1[x]</code></pre></div>
+<pre><code>## jone jane 
+##    1    3</code></pre>
+<p>벡터의 길이 조회</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(v1) <span class="co"># 벡터는 지원하지 않음</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">NROW</span>(v1) <span class="co"># 벡터 뿐 아니라 데이터 프레임이나 리스트 모든곳에 사용</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>벡터의 연산</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">100</span>))</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;a&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;d&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>벡터에 대한 스칼라 연산</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+y =<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="dv">3</span>
+y</code></pre></div>
+<pre><code>## [1]  3  6  9 12 15</code></pre>
+<p>벡터 합집합</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>)
 
+z &lt;-<span class="st"> </span><span class="kw">union</span>(x,y)
+z</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot;</code></pre>
+<p>벡터 교집합</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">intersect</span>(x,y)
+z</code></pre></div>
+<pre><code>## [1] &quot;C&quot;</code></pre>
+<p>벡터 차집합</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">setdiff</span>(x,y)
+z</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot;</code></pre>
+<p>벡터 비교</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setequal</span>(x,y)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>벡터 순차적 생성</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)
+x</code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>)
+x</code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<p>입력 받은 배열 크기만큼 순차적 생성</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>)
+y &lt;-<span class="st"> </span><span class="kw">seq_along</span>(x)
+y</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">NROW</span>(x)
+y</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7</code></pre>
+<p>일정한 구간을 반복해서 입력</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>)
+x</code></pre></div>
+<pre><code>## [1] 1 1 2 2 3 3 4 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="dv">5</span>)
+x</code></pre></div>
+<pre><code>##  [1] 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">times=</span><span class="dv">5</span>)
+x</code></pre></div>
+<pre><code>##  [1] 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4 1 1 2
+## [36] 2 3 3 4 4</code></pre>
+</div>
+<div id="list" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> 리스트(List)</h3>
+</div>
+<div id="matrix" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> 행렬(Matrix)</h3>
+</div>
+<div id="data-frame" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> 데이타프레임(Data Frame)</h3>
+
+</div>
 </div>
 </div>
             </section>
@@ -243,7 +361,7 @@ auto_factor</code></pre></div>
         </div>
       </div>
 <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
